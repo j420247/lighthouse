@@ -48,7 +48,6 @@ describe('network recorder', function() {
   });
 
   it('sets initiators to redirects when original initiator is script', () => {
-
     // The test page features script-initiated redirects:
     /*
         <!DOCTYPE html>
