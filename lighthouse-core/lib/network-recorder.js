@@ -368,7 +368,7 @@ class NetworkRecorder extends EventEmitter {
     for (const record of records) {
       const stackFrames = (record.initiator.stack && record.initiator.stack.callFrames) || [];
       const initiatorURL = record.initiator.url || (stackFrames[0] && stackFrames[0].url);
-      const initiator = recordsByURL.get(initiatorURL) || record.redirectSource;
+      const initiator = record.redirectSource || recordsByURL.get(initiatorURL);
       if (initiator) {
         record.setInitiatorRequest(initiator);
       }
