@@ -369,7 +369,7 @@ class NetworkRecorder extends EventEmitter {
       const stackFrames = (record.initiator.stack && record.initiator.stack.callFrames) || [];
       const initiatorURL = record.initiator.url || (stackFrames[0] && stackFrames[0].url);
       // If we were redirected to this request, our initiator is that redirect, otherwise, it's the
-      // initiator provided by the protocol. See #7352
+      // initiator provided by the protocol. See https://github.com/GoogleChrome/lighthouse/pull/7352/
       const initiator = record.redirectSource || recordsByURL.get(initiatorURL);
       if (initiator) {
         record.setInitiatorRequest(initiator);
